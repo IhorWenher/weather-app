@@ -5,7 +5,9 @@ import './App.css';
 //import getCurrentWeather from './api/getCurrentWeather';
 import usePosition from './hooks/usePosition';
 
+import Container from './components/Container';
 import SearchForm from './components/SearchForm';
+import WeatherPanel from './components/WeatherPanel';
 
 function App() {
   const [city, setSity] = useState('London');
@@ -22,10 +24,10 @@ function App() {
   };
 
   return (
-    <div className="App">
-      <header className="App-header"></header>
+    <Container>
       <SearchForm searchValueChange={city => handleSearchValue(city)} />
-    </div>
+      <WeatherPanel />
+    </Container>
   );
 }
 
