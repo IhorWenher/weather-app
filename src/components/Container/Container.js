@@ -21,7 +21,9 @@ const Container = ({ children, temp }) => {
         <span className={Styles.logo}>WeatherOK</span>
       </header>
       <main className={Styles.main}>{children}</main>
-      <footer className={Styles.footer}>Weather footer</footer>
+      <footer className={Styles.footer}>
+        <span className={Styles.footerText}>© 2021 🌤</span>
+      </footer>
     </div>
   );
 };

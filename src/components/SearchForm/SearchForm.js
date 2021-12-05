@@ -15,16 +15,21 @@ const SearchForm = ({ searchValueChange }) => {
   };
 
   return (
-    <form className={Styles.form} onSubmit={handleSubmit}>
-      <input
-        type="text"
-        autoComplete="off"
-        autoFocus
-        placeholder="Enter city name"
-        onChange={handleNameChange}
-      />
-      <button type="submit">Search</button>
-    </form>
+    <div className={Styles.searchbar}>
+      <form className={Styles.form} onSubmit={handleSubmit}>
+        <input
+          className={Styles.input}
+          type="text"
+          autoComplete="off"
+          autoFocus
+          placeholder="Enter city name"
+          onChange={handleNameChange}
+        />
+        <button type="submit" className={Styles.button}>
+          <span className={Styles.label}>Search</span>
+        </button>
+      </form>
+    </div>
   );
 };
 

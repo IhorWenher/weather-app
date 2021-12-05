@@ -1,21 +1,23 @@
 import Styles from './WeatherPanel.module.css';
 
 const WeatherPanel = ({ weather }) => {
+  const imageUrl = `https://www.metaweather.com/static/img/weather/png/64/${weather.weather_state_abbr}.png`;
+
   return (
     <div className={Styles.panel}>
-      <div>{weather.title}</div>
-      <div>{weather.air_pressure}</div>
-      <div>{weather.applicable_date}</div>
-      <div>{weather.humidity}</div>
-      <div>
-        {Math.round(weather.the_temp)}
+      <img
+        className={Styles.img}
+        src={imageUrl}
+        alt={weather.weather_state_abbr}
+      />
+      <div className={Styles.name}>{weather.title}</div>
+      <div className={Styles.pressure}>{weather.air_pressure}</div>
+      <div className={Styles.date}>{weather.applicable_date}</div>
+      <div className={Styles.humidity}>Humidity {weather.humidity}</div>
+      <div className={Styles.temp}>
+        Temp {Math.round(weather.the_temp)}
         <sup>o</sup>C
       </div>
-      <div>{weather.weather_state_abbr}</div>
-      <div>{weather.weather_state_name}</div>
-      <div>{weather.wind_direction}</div>
-      <div>{weather.wind_direction_compass}</div>
-      <div>{weather.wind_speed}</div>
     </div>
   );
 };

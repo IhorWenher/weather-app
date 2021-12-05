@@ -1,17 +1,20 @@
 import Slider from '@mui/material/Slider';
+import Styles from './Slider.module.css';
 
 const RangeSlider = ({ temp, onChange }) => {
   return (
-    <Slider
-      value={Math.round(temp)}
-      onChange={onChange}
-      aria-label="Temperature"
-      valueLabelDisplay="auto"
-      step={1}
-      marks
-      min={-40}
-      max={40}
-    />
+    <div className={Styles.slider}>
+      <Slider
+        value={Math.round(temp)}
+        onChange={onChange}
+        aria-label="Temperature"
+        valueLabelDisplay="auto"
+        step={1}
+        marks
+        min={-40}
+        max={40}
+      />
+    </div>
   );
 };
 

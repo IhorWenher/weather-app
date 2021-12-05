@@ -1,3 +1,50 @@
 .panel {
-    background-color: darkmagenta;
+    position: relative;
+    height: 30vh;
+    color: rgb(60, 115, 244);
+}
+
+.img {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    margin-right: -50%;
+    transform: translate(-50%, -50%);
+    width: 80px;
+    height: 80px;
+}
+
+.name {
+    position: absolute;
+    left: 30px;
+    top: 10px;
+    font-size: 40px;
+}
+
+.date {
+    position: absolute;
+    right: 30px;
+    top: 20px;
+    font-size: 30px;
+}
+
+.temp {
+    position: absolute;
+    left: 30px;
+    top: 60px;
+    font-size: 30px;
+}
+
+.pressure {
+    position: absolute;
+    left: 30px;
+    top: 115px;
+    font-size: 30px;
+}
+
+.humidity {
+    position: absolute;
+    right: 30px;
+    top: 60px;
+    font-size: 30px;
 }
