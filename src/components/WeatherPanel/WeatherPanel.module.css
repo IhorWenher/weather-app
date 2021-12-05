@@ -4,6 +4,14 @@
     color: rgb(60, 115, 244);
 }
 
+@media screen and (min-width: 1280px) {
+    .panel {
+        width: 768px;
+        margin-left: auto;
+        margin-right: auto;
+    }
+}
+
 .img {
     position: absolute;
     top: 50%;
@@ -47,4 +55,28 @@
     right: 30px;
     top: 60px;
     font-size: 30px;
+}
+
+@media screen and (max-width: 650px) {
+    .name {
+        position: absolute;
+        left: 40%;
+        top: 10px;
+        font-size: 40px;
+    }
+    .date {
+        display: none;
+    }
+    .temp {
+        position: absolute;
+        left: 32%;
+        top: 160px;
+        font-size: 30px;
+    }
+    .pressure {
+        display: none;
+    }
+    .humidity {
+        display: none;
+    }
 }
