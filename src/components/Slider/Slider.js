@@ -3,7 +3,7 @@ import Slider from '@mui/material/Slider';
 const RangeSlider = ({ temp, onChange }) => {
   return (
     <Slider
-      value={temp}
+      value={Math.round(temp)}
       onChange={onChange}
       aria-label="Temperature"
       valueLabelDisplay="auto"

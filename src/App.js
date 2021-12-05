@@ -6,6 +6,7 @@ import getCityId from './api/getCityId';
 import getCurrentPlace from './api/getCurrentPlace';
 import getCurrentWeather from './api/getCurrentWeather';
 import usePosition from './hooks/getPosition';
+import Alert from './components/Alert/Alert';
 
 import Container from './components/Container';
 import SearchForm from './components/SearchForm';
@@ -21,7 +22,9 @@ function App() {
 
   useEffect(() => {
     if (error === 'User denied Geolocation') {
-      console.log('Danied geo');
+      Alert(
+        'We can not find you. Please enter city name or allow your location',
+      );
     }
 
     if (latitude & longitude && !id) {
@@ -59,12 +62,13 @@ function App() {
   };
 
   const tempChanger = event => {
-    setTemp(event.target.value);
-    console.log(temp);
+    const temperature = Math.round(event.target.value);
+    console.log(temperature);
+    setTemp(temperature);
   };
 
   return (
-    <Container>
+    <Container temp={temp}>
       <SearchForm searchValueChange={city => handleSearchValue(city)} />
       {weatherObject && <WeatherPanel weather={weatherObject} />}
       <RangeSlider temp={temp} onChange={tempChanger} />
