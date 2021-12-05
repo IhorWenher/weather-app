@@ -1,16 +1,17 @@
 import axios from 'axios';
+import Alert from '../components/Alert/Alert';
 
 axios.defaults.baseURL = 'https://www.metaweather.com/api/';
 
 const getCurrentPlace = async ({ latitude, longitude }) => {
   try {
     const { data } = await axios.get(
-      `/api/location/search/?lattlong=${latitude},${longitude}`,
+      `location/search/?lattlong=${latitude},${longitude}`,
     );
 
     return data[0];
   } catch (error) {
-    console.log(error);
+    Alert('Сould not find you');
   }
 };
 
