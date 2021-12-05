@@ -1,10 +1,13 @@
-import { useState, useEffect } from 'react';
+import { useEffect, useState } from 'react';
 
 const usePosition = () => {
   const [position, setPosition] = useState({});
   const [error, setError] = useState(null);
 
-  const onChange = ({ latitude, longitude }) => {
+  const onChange = position => {
+    const {
+      coords: { latitude, longitude },
+    } = position;
     setPosition({ latitude, longitude });
   };
 
@@ -20,12 +23,12 @@ const usePosition = () => {
       return;
     }
 
-    const watcher = geo.watchPosition(onChange, onError);
+    const watcher = geo.getCurrentPosition(onChange, onError);
 
     return () => geo.clearWatch(watcher);
   }, []);
 
-  return console.log({ ...position, error });
+  return { ...position, error };
 };
 
 export default usePosition;

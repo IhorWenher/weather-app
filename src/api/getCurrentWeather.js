@@ -2,13 +2,11 @@ import axios from 'axios';
 
 axios.defaults.baseURL = 'https://www.metaweather.com/api/';
 
-const getCurrentWeather = async city => {
+const getCurrentWeather = async id => {
   try {
-    const { data } = await axios.get(`location/search/?query=${city}`);
+    const { data } = await axios.get(`location/${id}/`);
 
-    const weather = await axios.get(`location/${data[0].woeid}/`);
-
-    return console.log(weather.data);
+    return data;
   } catch (error) {
     console.log(error);
   }
