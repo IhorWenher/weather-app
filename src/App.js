@@ -25,16 +25,14 @@ function App() {
     }
 
     if (latitude & longitude && !id) {
-      console.log(latitude, longitude);
-      console.log('Coord download');
       getCurrentPlace({ latitude, longitude }).then(({ woeid }) =>
         setId(woeid),
       );
-      console.log('after Coord download');
     }
 
     if (id && !city) {
       console.log('id download');
+      console.log(id);
       getCurrentWeather(id).then(data => {
         setWeatherObject({
           ...data.consolidated_weather[0],
@@ -46,9 +44,12 @@ function App() {
 
     if (city) {
       console.log('city download');
+      console.log(id, city);
       getCityId(city).then(data => {
-        setId(data);
-        setSity(null);
+        if (id !== data) {
+          setSity(null);
+          setId(data);
+        }
       });
     }
   }, [latitude, longitude, error, city, id]);
