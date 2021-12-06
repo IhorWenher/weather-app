@@ -11,7 +11,7 @@ const WeatherPanel = ({ weather }) => {
         alt={weather.weather_state_abbr}
       />
       <div className={Styles.name}>{weather.title}</div>
-      <div className={Styles.pressure}>{weather.air_pressure}</div>
+      <div className={Styles.pressure}>Pressure {weather.air_pressure}</div>
       <div className={Styles.date}>{weather.applicable_date}</div>
       <div className={Styles.humidity}>Humidity {weather.humidity}</div>
       <div className={Styles.temp}>
