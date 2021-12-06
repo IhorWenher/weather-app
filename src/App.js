@@ -34,8 +34,6 @@ function App() {
     }
 
     if (id && !city) {
-      console.log('id download');
-      console.log(id);
       getCurrentWeather(id).then(data => {
         setWeatherObject({
           ...data.consolidated_weather[0],
@@ -46,8 +44,6 @@ function App() {
     }
 
     if (city) {
-      console.log('city download');
-      console.log(id, city);
       getCityId(city).then(data => {
         if (id !== data) {
           setSity(null);
@@ -63,7 +59,6 @@ function App() {
 
   const tempChanger = event => {
     const temperature = Math.round(event.target.value);
-    console.log(temperature);
     setTemp(temperature);
   };
 

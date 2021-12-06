@@ -3,7 +3,6 @@ import Styles from './Container.module.css';
 
 const Container = ({ children, temp }) => {
   const [className, setClassName] = useState(Styles.normal);
-  console.log(className);
 
   useEffect(() => {
     if (temp <= -10) {
